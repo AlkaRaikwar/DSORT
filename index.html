@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LIFE_OS</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            background: #060d1f;
+
+            color: #d1d9e6;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+
+        }
+
+        /* =======================
+NAVBAR
+======================= */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            backdrop-filter: blur(20px);
+
+            background: rgba(6, 13, 31, .95);
+
+            border-bottom: 1px solid #16223d;
+
+        }
+
+        .navbar {
+
+            max-width: 1400px;
+
+            margin: auto;
+
+            padding: 22px 40px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+        .logo {
+
+            font-size: 30px;
+
+            font-weight: 900;
+
+            letter-spacing: -1px;
+
+            color: #e8f4ff;
+
+        }
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 30px;
+
+            list-style: none;
+
+        }
+
+        .nav-links a {
+
+            text-decoration: none;
+
+            color: #8fa1c3;
+
+            font-weight: 600;
+
+            transition: .3s;
+
+        }
+
+        .nav-links a:hover {
+
+            color: #3b82f6;
+
+        }
+
+        /* =======================
+HERO
+======================= */
+
+        .hero {
+
+            max-width: 1400px;
+
+            margin: auto;
+
+            padding: 120px 40px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+
+        }
+
+        .hero-badge {
+
+            padding: 8px 18px;
+
+            border-radius: 999px;
+
+            border: 1px solid #1e3a8a;
+
+            background: #0b1428;
+
+            color: #60a5fa;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+
+        }
+
+        .hero h1 {
+
+            font-size: 72px;
+
+            font-weight: 800;
+
+            line-height: 1.05;
+
+            letter-spacing: -3px;
+
+            max-width: 1000px;
+
+            margin-bottom: 25px;
+
+            color: #e8f4ff;
+
+        }
+
+        .hero span {
+
+            color: #3b82f6;
+
+        }
+
+        .hero p {
+
+            max-width: 850px;
+
+            font-size: 20px;
+
+            line-height: 1.9;
+
+            color: #8fa1c3;
+
+            margin-bottom: 45px;
+
+        }
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+        }
+
+        .hero-btn {
+
+            padding: 18px 34px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+        .hero-btn:hover {
+
+            background: #1d4ed8;
+
+            transform: translateY(-2px);
+
+        }
+
+        .hero-btn-outline {
+
+            padding: 18px 34px;
+
+            border-radius: 14px;
+
+            border: 1px solid #1e3a8a;
+
+            background: transparent;
+
+            color: #e8f4ff;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+        .hero-btn-outline:hover {
+
+            background: #0b1428;
+
+        }
+
+        /* =======================
+FEATURES
+======================= */
+
+        .features {
+
+            max-width: 1400px;
+
+            margin: auto;
+
+            padding: 20px 40px 100px;
+
+        }
+
+        .section-title {
+
+            font-size: 48px;
+
+            font-weight: 800;
+
+            letter-spacing: -2px;
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+            color: #e8f4ff;
+
+        }
+
+        .section-sub {
+
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: auto;
+
+            margin-bottom: 60px;
+
+            color: #8fa1c3;
+
+            line-height: 1.8;
+
+        }
+
+        .feature-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+            gap: 30px;
+
+        }
+
+        .feature-card {
+
+            background: #0b1428;
+
+            border: 1px solid #16223d;
+
+            padding: 32px;
+
+            border-radius: 24px;
+
+            transition: .3s;
+
+        }
+
+        .feature-card:hover {
+
+            transform: translateY(-10px);
+
+            border-color: #3b82f6;
+
+            box-shadow: 0 25px 60px rgba(59, 130, 246, .12);
+
+        }
+
+        .feature-icon {
+
+            font-size: 38px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .feature-card h2 {
+
+            font-size: 24px;
+
+            margin-bottom: 15px;
+
+            color: #e8f4ff;
+
+        }
+
+        .feature-card p {
+
+            color: #8fa1c3;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+
+        }
+
+        .feature-card a {
+
+            display: inline-block;
+
+            padding: 12px 18px;
+
+            background: #2563eb;
+
+            text-decoration: none;
+
+            color: white;
+
+            border-radius: 12px;
+
+            font-weight: 700;
+
+            transition: .3s;
+
+        }
+
+        .feature-card a:hover {
+
+            background: #1d4ed8;
+
+        }
+
+        /* =======================
+STATS
+======================= */
+
+        .stats {
+
+            max-width: 1400px;
+
+            margin: auto;
+
+            padding: 50px 40px 100px;
+
+        }
+
+        .stats-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 25px;
+
+        }
+
+        .stat-card {
+
+            background: #0b1428;
+
+            border: 1px solid #16223d;
+
+            border-radius: 24px;
+
+            padding: 30px;
+
+            text-align: center;
+
+        }
+
+        .stat-card h2 {
+
+            font-size: 42px;
+
+            color: #3b82f6;
+
+            margin-bottom: 10px;
+
+        }
+
+        .stat-card p {
+
+            color: #8fa1c3;
+
+        }
+
+        /* =======================
+FOOTER
+======================= */
+
+        footer {
+
+            margin-top: 50px;
+
+            padding: 40px;
+
+            text-align: center;
+
+            background: #040916;
+
+            border-top: 1px solid #16223d;
+
+        }
+
+        footer p {
+
+            color: #8fa1c3;
+
+        }
+
+        /* =======================
+RESPONSIVE
+======================= */
+
+        @media(max-width:768px) {
+
+            .hero h1 {
+
+                font-size: 46px;
+
+                letter-spacing: -1px;
+
+            }
+
+            .navbar {
+
+                flex-direction: column;
+
+                gap: 20px;
+
+            }
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+            }
+
+            .hero {
+
+                padding: 80px 25px;
+
+            }
+
+            .section-title {
+
+                font-size: 36px;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                DSORT
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dsa-lab.html">DSA Lab</a></li>
+                <li><a href="fear-engine.html">Fear Engine</a></li>
+                <li><a href="time-coin-engine.html">Time Coin</a></li>
+                <li><a href="growth-strategy.html">Growth</a></li>
+                <li><a href="expert-network.html">Experts</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-badge">
+            Personal Grow Track  with DSORT
+        </div>
+
+        <h1>
+
+            Engineer The Version
+            Of Yourself
+            <span>You Respect.</span>
+
+        </h1>
+
+        <p>
+
+            Master DSA.
+            Track execution.
+            Destroy mental resistance.
+            Measure growth.
+ Build systems instead of relying on motivation.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="hero-btn">
+                Start Building
+            </button>
+
+            <button class="hero-btn-outline">
+                Explore Features
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">
+            Core Engines
+        </h2>
+        <p class="section-sub">
+            Everything required to transform yourself from beginner to elite performer.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🧠</div>
+
+                <h2>30 Min DSA Lab</h2>
+
+                <p>
+
+                    Reverse engineer how top coders think.
+                    Analyze your problem solving process step by step.
+
+                </p>
+
+                <a href="dsa-lab.html">
+                    Open Lab
+                </a>
+
+            </div>
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🔥</div>
+
+                <h2>Fear Engine</h2>
+
+                <p>
+
+                    Dump mental fears.
+                    Convert anxiety into actionable execution plans.
+
+                </p>
+
+                <a href="fear-engine.html">
+                    Open Engine
+                </a>
+
+            </div>
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🪙</div>
+
+                <h2>Time Coin Engine</h2>
+
+                <p>
+
+                    Convert productive hours into measurable value and track waste.
+
+                </p>
+
+                <a href="time-coin-engine.html">
+                    Open Engine
+                </a>
+
+            </div>
+
+            <div class="feature-card">
+
+                <div class="feature-icon">📈</div>
+
+                <h2>Growth Strategy</h2>
+
+                <p>
+
+                    Create a roadmap.
+                    Upload achievements.
+                    Build proof of progress.
+
+                </p>
+
+                <a href="growth-strategy.html">
+                    Open Strategy
+                </a>
+
+            </div>
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🚀</div>
+
+                <h2>Expert Network</h2>
+
+                <p>
+
+                    Connect with experienced engineers and elite performers.
+
+                </p>
+
+                <a href="expert-network.html">
+                    Open Network
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="stats">
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h2>30M</h2>
+                <p>DSA Sessions</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>24H</h2>
+                <p>Time Tracking</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>100%</h2>
+                <p>Personal Ownership</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>∞</h2>
+                <p>Growth Potential</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p>
+
+            LIFE_OS © 2026
+
+            Build. Execute. Improve.
+
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

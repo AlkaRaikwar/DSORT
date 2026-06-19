@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DSA Lab | SECRET_APP</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Inter, sans-serif;
+        }
+
+        body {
+            background: #060d1f;
+            color: white;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(6, 13, 31, .9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(79, 140, 255, .15);
+            z-index: 999;
+        }
+
+        .navbar {
+            max-width: 1400px;
+            margin: auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: #4f8cff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #dbeafe;
+            font-weight: 600;
+        }
+
+        .page-hero {
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 60px;
+            color: #e8f4ff;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            max-width: 900px;
+            margin: auto;
+            color: #9fb5d1;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 40px;
+        }
+
+        .card {
+            background: #0d1730;
+            border: 1px solid rgba(79, 140, 255, .15);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: #e8f4ff;
+        }
+
+        .question-drop {
+            border: 2px dashed #4f8cff;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            background: #091224;
+        }
+
+        .question-drop textarea {
+            width: 100%;
+            height: 180px;
+            margin-top: 20px;
+            background: #060d1f;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            resize: none;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .phase {
+            background: #091224;
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px solid rgba(79, 140, 255, .12);
+        }
+
+        .phase h3 {
+            color: #4f8cff;
+            margin-bottom: 10px;
+        }
+
+        .phase-time {
+            font-size: 34px;
+            font-weight: 900;
+            color: #ff6b4a;
+            margin-bottom: 10px;
+        }
+
+        .progress-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .metric {
+            background: #091224;
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .metric h2 {
+            font-size: 40px;
+            color: #4f8cff;
+        }
+
+        .metric p {
+            margin-top: 10px;
+            color: #9fb5d1;
+        }
+
+        .fear-box textarea {
+            width: 100%;
+            height: 200px;
+            background: #060d1f;
+            border: 1px solid #ff6b4a;
+            border-radius: 15px;
+            padding: 15px;
+            color: white;
+        }
+
+        .fear-btn {
+            margin-top: 15px;
+            background: #ff6b4a;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+        }
+
+        .leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .leaderboard th {
+            background: #091224;
+            padding: 15px;
+        }
+
+        .leaderboard td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            text-align: center;
+        }
+
+        @media(max-width:900px) {
+
+            .progress-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero h1 {
+                font-size: 42px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                SECRET_APP
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dsa-lab.html">DSA Lab</a></li>
+                <li><a href="fear-engine.html">Fear Engine</a></li>
+                <li><a href="time-coin-engine.html">Time Coin</a></li>
+                <li><a href="growth-strategy.html">Strategy</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <section class="page-hero">
+
+        <h1>30 Minute DSA Lab</h1>
+
+        <p>
+            Reverse engineer how elite problem solvers think.
+            Track every minute of your problem solving journey
+            and identify exactly where your brain gets stuck.
+        </p>
+
+    </section>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="card-title">
+                Drop Your LeetCode Question
+            </div>
+
+            <div class="question-drop">
+
+                <h2>Paste Question Link or Statement</h2>
+
+                <textarea placeholder="LeetCode 153, 33, 560 ..."></textarea>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+                30 Minute Execution Framework
+            </div>
+
+            <div class="timeline">
+
+                <div class="phase">
+                    <h3>Understand Problem</h3>
+                    <div class="phase-time">3m</div>
+                    <p>Read carefully and identify inputs, outputs and constraints.</p>
+                </div>
+
+                <div class="phase">
+                    <h3>Test Cases</h3>
+                    <div class="phase-time">2m</div>
+                    <p>Understand examples and edge cases.</p>
+                </div>
+
+                <div class="phase">
+                    <h3>Dry Run</h3>
+                    <div class="phase-time">5m</div>
+                    <p>Simulate manually.</p>
+                </div>
+
+                <div class="phase">
+                    <h3>Logic Thinking</h3>
+                    <div class="phase-time">5m</div>
+                    <p>Design approach.</p>
+                </div>
+
+                <div class="phase">
+                    <h3>Initial Coding</h3>
+                    <div class="phase-time">5m</div>
+                    <p>Build first version.</p>
+                </div>
+
+                <div class="phase">
+                    <h3>Refinement</h3>
+                    <div class="phase-time">5m</div>
+                    <p>Improve logic.</p>
+                </div>
+
+                <div class="phase">
+                    <h3>Final Coding</h3>
+                    <div class="phase-time">5m</div>
+                    <p>Finish implementation.</p>
+                </div>
+
+            </div>
+            <!-- ================= PERFORMANCE ANALYTICS ================= -->
+
+            <div class="card">
+
+                <div class="card-title">
+                    Performance Analytics Engine
+                </div>
+
+                <div class="analytics-grid">
+
+                    <div class="metric">
+                        <h2>72%</h2>
+                        <p>Problem Understanding</p>
+                    </div>
+
+                    <div class="metric">
+                        <h2>41%</h2>
+                        <p>Logic Building</p>
+                    </div>
+
+                    <div class="metric">
+                        <h2>88%</h2>
+                        <p>Coding Speed</p>
+                    </div>
+
+                    <div class="metric">
+                        <h2>53%</h2>
+                        <p>Dry Run Accuracy</p>
+                    </div>
+
+                    <div class="metric">
+                        <h2>67%</h2>
+                        <p>Pattern Recognition</p>
+                    </div>
+
+                    <div class="metric">
+                        <h2>34%</h2>
+                        <p>Interview Readiness</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= FEAR BOX ================= -->
+
+            <div class="progress-wrapper">
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Weakness Detection Engine
+                    </div>
+
+                    <div style="display:flex;flex-direction:column;gap:18px;">
+
+                        <div class="phase">
+                            <h3>Current Level</h3>
+                            <p>Mediocre → Pattern Recognition Missing</p>
+                        </div>
+
+                        <div class="phase">
+                            <h3>Main Bottleneck</h3>
+                            <p>Jumping into code before building logic.</p>
+                        </div>
+
+                        <div class="phase">
+                            <h3>Recommended Fix</h3>
+                            <p>Solve 20 similar questions manually before coding.</p>
+                        </div>
+
+                        <div class="phase">
+                            <h3>Brain Diagnosis</h3>
+                            <p>You know syntax but not enough patterns.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card fear-box">
+
+                    <div class="card-title">
+                        Fear Isolation Box
+                    </div>
+
+                    <textarea id="fearInput" placeholder="Write whatever is running in your mind..."></textarea>
+
+                    <button class="fear-btn" onclick="generateFearResponse()">
+                        Analyze Fear
+                    </button>
+
+                    <div id="fearOutput" style="
+margin-top:20px;
+padding:15px;
+background:#091224;
+border-radius:15px;
+display:none;
+line-height:1.7;
+">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= INDUSTRY COMPARISON ================= -->
+
+            <div class="card">
+
+                <div class="card-title">
+                    Industry Distribution Comparison
+                </div>
+
+                <div class="timeline">
+
+                    <div class="phase">
+                        <h3>You</h3>
+                        <div class="phase-time">18m</div>
+                        <p>Thinking Time</p>
+                    </div>
+
+                    <div class="phase">
+                        <h3>Industry Standard</h3>
+                        <div class="phase-time">10m</div>
+                        <p>Thinking Time</p>
+                    </div>
+
+                    <div class="phase">
+                        <h3>You</h3>
+                        <div class="phase-time">4m</div>
+                        <p>Dry Run</p>
+                    </div>
+
+                    <div class="phase">
+                        <h3>Top Engineer</h3>
+                        <div class="phase-time">8m</div>
+                        <p>Dry Run</p>
+                    </div>
+
+                    <div class="phase">
+                        <h3>You</h3>
+                        <div class="phase-time">8m</div>
+                        <p>Coding</p>
+                    </div>
+
+                    <div class="phase">
+                        <h3>Top Engineer</h3>
+                        <div class="phase-time">12m</div>
+                        <p>Coding</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= LEARNING BREAKDOWN ================= -->
+
+            <div class="card">
+
+                <div class="card-title">
+                    Question Reverse Engineering
+                </div>
+
+                <div class="phase">
+
+                    <h3>What You Were Supposed To Think</h3>
+
+                    <p>
+
+                        1. Constraint Analysis
+
+                        <br><br>
+
+                        2. Pattern Detection
+
+                        <br><br>
+
+                        3. Data Structure Selection
+
+                        <br><br>
+
+                        4. Edge Cases
+
+                        <br><br>
+
+                        5. Complexity Analysis
+
+                        <br><br>
+
+                        6. Final Coding
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- ================= BRAIN HEATMAP ================= -->
+
+            <div class="card">
+
+                <div class="card-title">
+                    Brain Heatmap
+                </div>
+
+                <div class="analytics-grid">
+
+                    <div class="metric">
+                        <h2 style="color:#22c55e;">95%</h2>
+                        <p>Arrays</p>
+                    </div>
+
+                    <div class="metric">
+                        <h2 style="color:#22c55e;">82%</h2>
+                        <p>Strings</p>
+                    </div>
+
+                    <div class="metric">
+                        <h2 style="color:#f59e0b;">61%</h2>
+                        <p>HashMap</p>
+                    </div>
+
+                    <div class="metric">
+                        <h2 style="color:#ef4444;">28%</h2>
+                        <p>DP</p>
+                    </div>
+
+                    <div class="metric">
+                        <h2 style="color:#ef4444;">33%</h2>
+                        <p>Graphs</p>
+                    </div>
+
+                    <div class="metric">
+                        <h2 style="color:#f59e0b;">57%</h2>
+                        <p>Binary Search</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= LEADERBOARD ================= -->
+
+            <div class="card leaderboard">
+
+                <div class="card-title">
+                    30 Minute Lab Leaderboard
+                </div>
+
+                <table>
+
+                    <tr>
+                        <th>Rank</th>
+                        <th>User</th>
+                        <th>Score</th>
+                        <th>Level</th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Aman</td>
+                        <td>96</td>
+                        <td>Expert</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Priyal</td>
+                        <td>91</td>
+                        <td>Expert</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Nikhil</td>
+                        <td>88</td>
+                        <td>Expert</td>
+                    </tr>
+
+                    <tr>
+                        <td>24</td>
+                        <td>You</td>
+                        <td>54</td>
+                        <td>Mediocre</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <!-- ================= TIMER ================= -->
+
+            <div class="card">
+
+                <div class="card-title">
+                    Live 30 Minute Session
+                </div>
+
+                <div style="
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+gap:20px;
+">
+
+                    <h1 id="timerDisplay" style="
+font-size:90px;
+color:#4f8cff;
+font-weight:900;
+">
+                        30:00
+                    </h1>
+
+                    <div style="display:flex;gap:15px;">
+
+                        <button onclick="startTimer()" class="fear-btn" style="background:#22c55e;">
+                            Start
+                        </button>
+
+                        <button onclick="pauseTimer()" class="fear-btn" style="background:#ff6b4a;">
+                            Pause
+                        </button>
+
+                        <button onclick="resetTimer()" class="fear-btn">
+                            Reset
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <script>
+
+                let totalSeconds = 1800;
+                let timer;
+
+                function updateTimer() {
+
+                    let min = Math.floor(totalSeconds / 60);
+                    let sec = totalSeconds % 60;
+
+                    document.getElementById("timerDisplay").innerHTML =
+                        String(min).padStart(2, '0') + ":" +
+                        String(sec).padStart(2, '0');
+
+                }
+
+                function startTimer() {
+
+                    clearInterval(timer);
+
+                    timer = setInterval(() => {
+
+                        if (totalSeconds > 0) {
+
+                            totalSeconds--;
+                            updateTimer();
+
+                        }
+
+                    }, 1000);
+
+                }
+
+                function pauseTimer() {
+                    clearInterval(timer);
+                }
+
+                function resetTimer() {
+
+                    clearInterval(timer);
+
+                    totalSeconds = 1800;
+
+                    updateTimer();
+
+                }
+
+                updateTimer();
+
+                function generateFearResponse() {
+
+                    let fear =
+                        document.getElementById("fearInput").value.toLowerCase();
+
+                    let output =
+                        document.getElementById("fearOutput");
+
+                    let response = "";
+
+                    if (fear.includes("dp")) {
+
+                        response =
+                            "DP nahi aa raha matlab DP weak hai. IQ weak nahi hai. 20 DP problems karo.";
+
+                    }
+
+                    else if (fear.includes("graph")) {
+
+                        response =
+                            "Graph nahi aa raha because graph patterns abhi brain memory me loaded nahi hue.";
+
+                    }
+
+                    else if (fear.includes("leetcode")) {
+
+                        response =
+                            "LeetCode rank tumhari identity nahi hai. Process improve karo.";
+
+                    }
+
+                    else {
+
+                        response =
+                            "Fear ka answer aur coding hai. Question solve karo. Data collect karo. Improve karo.";
+
+                    }
+
+                    output.style.display = "block";
+                    output.innerHTML = response;
+
+                }
+
+            </script>
+        </div>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Coin Engine</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#060d1f;
+color:white;
+min-height:100vh;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(6,13,31,.95);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+max-width:1400px;
+margin:auto;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#e8f4ff;
+}
+
+.nav-links{
+display:flex;
+gap:22px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+.nav-links a:hover{
+color:#38bdf8;
+}
+
+.hero{
+max-width:1400px;
+margin:auto;
+padding:70px 40px 30px;
+text-align:center;
+}
+
+.hero h1{
+font-size:60px;
+color:#e8f4ff;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+color:#94a3b8;
+max-width:800px;
+margin:auto;
+line-height:1.7;
+}
+
+.coin-summary{
+max-width:1400px;
+margin:30px auto;
+padding:0 40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.summary-card{
+background:#0f172a;
+border:1px solid rgba(255,255,255,.08);
+padding:30px;
+border-radius:24px;
+}
+
+.summary-card h3{
+font-size:15px;
+color:#94a3b8;
+margin-bottom:12px;
+}
+
+.summary-card h2{
+font-size:40px;
+color:#facc15;
+}
+
+.week-grid{
+max-width:1400px;
+margin:auto;
+padding:20px 40px 80px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+}
+
+.day-card{
+background:#0f172a;
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:30px;
+}
+
+.day-header{
+display:flex;
+justify-content:space-between;
+margin-bottom:25px;
+}
+
+.day-header h2{
+font-size:24px;
+color:#e8f4ff;
+}
+
+.status{
+background:#facc15;
+color:black;
+padding:8px 14px;
+border-radius:30px;
+font-size:12px;
+font-weight:700;
+}
+
+.input-box{
+margin-bottom:18px;
+}
+
+.input-box label{
+display:block;
+margin-bottom:8px;
+font-size:13px;
+font-weight:600;
+color:#94a3b8;
+}
+
+.input-box input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+background:#1e293b;
+color:white;
+font-size:15px;
+}
+
+.audit-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#38bdf8;
+color:black;
+font-weight:800;
+cursor:pointer;
+margin-top:10px;
+}
+
+.audit-btn:hover{
+background:#0ea5e9;
+}
+
+.result{
+margin-top:25px;
+padding:20px;
+background:#111827;
+border-radius:18px;
+display:none;
+}
+
+.coin{
+font-size:28px;
+font-weight:900;
+color:#facc15;
+margin-bottom:10px;
+}
+
+.good{
+color:#22c55e;
+font-weight:700;
+}
+
+.bad{
+color:#f97316;
+font-weight:700;
+}
+
+.footer{
+background:#020617;
+padding:30px;
+text-align:center;
+color:#94a3b8;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+TIME COIN
+</div>
+
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="dsa-lab.html">DSA Lab</a></li>
+<li><a href="fear-engine.html">Fear Engine</a></li>
+<li><a href="growth-strategy.html">Growth Strategy</a></li>
+<li><a href="expert-network.html">Experts</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>24 Hour → Coin Conversion Engine</h1>
+
+<p>
+Every hour of focused work earns Dream Coins.
+At 11:59 PM your day is audited and compared against your dream life requirements.
+</p>
+
+</section>
+
+<section class="coin-summary">
+
+<div class="summary-card">
+<h3>Total Coins</h3>
+<h2>12,480</h2>
+</div>
+
+<div class="summary-card">
+<h3>Dream Life Requirement</h3>
+<h2>25,000</h2>
+</div>
+
+<div class="summary-card">
+<h3>Gap Remaining</h3>
+<h2 style="color:#f97316;">12,520</h2>
+</div>
+
+</section>
+
+<section class="week-grid">
+
+<div class="day-card">
+
+<div class="day-header">
+<h2>Monday</h2>
+<div class="status">ACTIVE</div>
+</div>
+
+<div class="input-box">
+<label>Productive Hours</label>
+<input type="number" id="monHours" placeholder="Enter hours">
+</div>
+
+<div class="input-box">
+<label>Dream Target Coins</label>
+<input type="number" value="100" readonly>
+</div>
+
+<button class="audit-btn" onclick="auditDay('monHours','monResult')">
+Run Audit
+</button>
+
+<div class="result" id="monResult"></div>
+
+</div>
+
+<div class="day-card">
+
+<div class="day-header">
+<h2>Tuesday</h2>
+<div class="status">ACTIVE</div>
+</div>
+
+<div class="input-box">
+<label>Productive Hours</label>
+<input type="number" id="tueHours">
+</div>
+
+<div class="input-box">
+<label>Dream Target Coins</label>
+<input type="number" value="100" readonly>
+</div>
+
+<button class="audit-btn" onclick="auditDay('tueHours','tueResult')">
+Run Audit
+</button>
+
+<div class="result" id="tueResult"></div>
+
+</div>
+
+<div class="day-card">
+
+<div class="day-header">
+<h2>Wednesday</h2>
+<div class="status">ACTIVE</div>
+</div>
+
+<div class="input-box">
+<label>Productive Hours</label>
+<input type="number" id="wedHours">
+</div>
+
+<div class="input-box">
+<label>Dream Target Coins</label>
+<input type="number" value="100" readonly>
+</div>
+
+<button class="audit-btn" onclick="auditDay('wedHours','wedResult')">
+Run Audit
+</button>
+
+<div class="result" id="wedResult"></div>
+
+</div>
+
+<div class="day-card">
+
+<div class="day-header">
+<h2>Thursday</h2>
+<div class="status">ACTIVE</div>
+</div>
+
+<div class="input-box">
+<label>Productive Hours</label>
+<input type="number" id="thuHours">
+</div>
+
+<div class="input-box">
+<label>Dream Target Coins</label>
+<input type="number" value="100" readonly>
+</div>
+
+<button class="audit-btn" onclick="auditDay('thuHours','thuResult')">
+Run Audit
+</button>
+
+<div class="result" id="thuResult"></div>
+
+</div>
+
+<div class="day-card">
+
+<div class="day-header">
+<h2>Friday</h2>
+<div class="status">ACTIVE</div>
+</div>
+
+<div class="input-box">
+<label>Productive Hours</label>
+<input type="number" id="friHours">
+</div>
+
+<div class="input-box">
+<label>Dream Target Coins</label>
+<input type="number" value="100" readonly>
+</div>
+
+<button class="audit-btn" onclick="auditDay('friHours','friResult')">
+Run Audit
+</button>
+
+<div class="result" id="friResult"></div>
+
+</div>
+
+<div class="day-card">
+
+<div class="day-header">
+<h2>Saturday</h2>
+<div class="status">ACTIVE</div>
+</div>
+
+<div class="input-box">
+<label>Productive Hours</label>
+<input type="number" id="satHours">
+</div>
+
+<div class="input-box">
+<label>Dream Target Coins</label>
+<input type="number" value="100" readonly>
+</div>
+
+<button class="audit-btn" onclick="auditDay('satHours','satResult')">
+Run Audit
+</button>
+
+<div class="result" id="satResult"></div>
+
+</div>
+
+<div class="day-card">
+
+<div class="day-header">
+<h2>Sunday</h2>
+<div class="status">ACTIVE</div>
+</div>
+
+<div class="input-box">
+<label>Productive Hours</label>
+<input type="number" id="sunHours">
+</div>
+
+<div class="input-box">
+<label>Dream Target Coins</label>
+<input type="number" value="100" readonly>
+</div>
+
+<button class="audit-btn" onclick="auditDay('sunHours','sunResult')">
+Run Audit
+</button>
+
+<div class="result" id="sunResult"></div>
+
+</div>
+
+</section>
+
+<div class="footer">
+TIME COIN ENGINE • SECRET APP © 2026
+</div>
+
+<script>
+
+function auditDay(inputId,resultId){
+
+let hrs=parseInt(document.getElementById(inputId).value)||0;
+
+let coins=hrs*10;
+
+let wasted=24-hrs;
+
+let result=document.getElementById(resultId);
+
+result.style.display="block";
+
+result.innerHTML=`
+
+<div class="coin">
+🪙 ${coins} Dream Coins Earned
+</div>
+
+<p class="good">
+Focused Hours : ${hrs}
+</p>
+
+<br>
+
+<p class="bad">
+Wasted Hours : ${wasted}
+</p>
+
+<br>
+
+<p>
+Dream Gap Analysis:
+You lost approximately <span class="bad">${wasted*10} coins</span>
+by not investing those hours toward your target life.
+</p>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>

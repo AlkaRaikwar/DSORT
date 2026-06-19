@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Expert Network</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#060d1f;
+color:white;
+min-height:100vh;
+}
+
+/* NAVBAR */
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(6,13,31,.95);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+max-width:1400px;
+margin:auto;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#e8f4ff;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#38bdf8;
+}
+
+/* HERO */
+
+.hero{
+max-width:1400px;
+margin:auto;
+padding:80px 40px;
+text-align:center;
+}
+
+.hero h1{
+font-size:65px;
+font-weight:900;
+color:#e8f4ff;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:850px;
+margin:auto;
+font-size:18px;
+line-height:1.8;
+color:#94a3b8;
+}
+
+/* STATS */
+
+.stats{
+max-width:1400px;
+margin:auto;
+padding:0 40px 50px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.stat-card{
+background:#0f172a;
+border:1px solid rgba(255,255,255,.08);
+border-radius:24px;
+padding:30px;
+text-align:center;
+}
+
+.stat-card h2{
+font-size:45px;
+color:#38bdf8;
+margin-bottom:10px;
+}
+
+.stat-card p{
+color:#94a3b8;
+}
+
+/* EXPERT SECTION */
+
+.section{
+max-width:1400px;
+margin:auto;
+padding:30px 40px 100px;
+}
+
+.section-title{
+font-size:42px;
+font-weight:900;
+text-align:center;
+margin-bottom:50px;
+color:#e8f4ff;
+}
+
+.experts-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+}
+
+.expert-card{
+background:#0f172a;
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:30px;
+transition:.3s;
+}
+
+.expert-card:hover{
+transform:translateY(-8px);
+border-color:#38bdf8;
+}
+
+.top-row{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+margin-bottom:20px;
+}
+
+.avatar{
+height:85px;
+width:85px;
+border-radius:50%;
+background:linear-gradient(135deg,#38bdf8,#2563eb);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+font-weight:800;
+}
+
+.status{
+padding:8px 12px;
+border-radius:30px;
+font-size:11px;
+font-weight:700;
+}
+
+.online{
+background:#22c55e;
+color:black;
+}
+
+.busy{
+background:#f97316;
+color:black;
+}
+
+.name{
+font-size:24px;
+font-weight:800;
+margin-bottom:5px;
+}
+
+.role{
+color:#94a3b8;
+margin-bottom:20px;
+}
+
+.stats-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-bottom:20px;
+}
+
+.small-box{
+background:#111827;
+padding:15px;
+border-radius:16px;
+text-align:center;
+}
+
+.small-box h3{
+color:#38bdf8;
+margin-bottom:5px;
+}
+
+.rating{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+background:#111827;
+border-radius:16px;
+margin-bottom:25px;
+}
+
+.star{
+color:#facc15;
+font-size:20px;
+}
+
+.buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.btn{
+padding:14px;
+border:none;
+border-radius:14px;
+cursor:pointer;
+font-weight:700;
+}
+
+.msg{
+background:#1e293b;
+color:white;
+}
+
+.call{
+background:#38bdf8;
+color:black;
+}
+
+.call:hover{
+background:#0ea5e9;
+}
+
+/* LEADERBOARD */
+
+.leaderboard{
+max-width:1400px;
+margin:auto;
+padding:0 40px 100px;
+}
+
+.board{
+background:#0f172a;
+border-radius:30px;
+padding:35px;
+}
+
+.row{
+display:grid;
+grid-template-columns:80px 1fr 150px 150px;
+padding:20px;
+border-bottom:1px solid rgba(255,255,255,.05);
+align-items:center;
+}
+
+.row:last-child{
+border:none;
+}
+
+.rank{
+font-size:28px;
+font-weight:900;
+color:#38bdf8;
+}
+
+.score{
+color:#22c55e;
+font-weight:800;
+}
+
+/* FOOTER */
+
+footer{
+background:#020617;
+padding:30px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer p{
+color:#94a3b8;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:45px;
+}
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.row{
+grid-template-columns:1fr;
+gap:10px;
+text-align:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+SECRET_APP
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="dsa-lab.html">DSA Lab</a></li>
+<li><a href="fear-engine.html">Fear Engine</a></li>
+<li><a href="time-coin-engine.html">Time Coin</a></li>
+<li><a href="growth-strategy.html">Growth Strategy</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Expert Network</h1>
+
+<p>
+
+Connect with elite performers, engineers,
+competitive programmers, AI researchers and
+high execution individuals who have already
+achieved what you're trying to achieve.
+
+</p>
+
+</section>
+
+<section class="stats">
+
+<div class="stat-card">
+<h2>2,400+</h2>
+<p>Experts Available</p>
+</div>
+
+<div class="stat-card">
+<h2>14,000+</h2>
+<p>Mentorship Sessions</p>
+</div>
+
+<div class="stat-card">
+<h2>4.9★</h2>
+<p>Average Rating</p>
+</div>
+
+<div class="stat-card">
+<h2>93%</h2>
+<p>Success Rate</p>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+Top Mentors
+</h2>
+
+<div class="experts-grid">
+
+<!-- CARD 1 -->
+
+<div class="expert-card">
+
+<div class="top-row">
+
+<div class="avatar">
+AV
+</div>
+
+<div class="status online">
+ONLINE
+</div>
+
+</div>
+
+<div class="name">
+Aman Verma
+</div>
+
+<div class="role">
+SDE-2 @ Product Company
+</div>
+
+<div class="stats-row">
+
+<div class="small-box">
+<h3>1700+</h3>
+<p>CF Rating</p>
+</div>
+
+<div class="small-box">
+<h3>1200+</h3>
+<p>LC Solved</p>
+</div>
+
+</div>
+
+<div class="rating">
+<div class="star">★★★★★</div>
+<div>4.9</div>
+</div>
+
+<div class="buttons">
+<button class="btn msg">Message</button>
+<button class="btn call">Book Call ₹99</button>
+</div>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div class="expert-card">
+
+<div class="top-row">
+
+<div class="avatar">
+NS
+</div>
+
+<div class="status busy">
+BUSY
+</div>
+
+</div>
+
+<div class="name">
+Nikhil Sharma
+</div>
+
+<div class="role">
+Ex Amazon • Quant Engineer
+</div>
+
+<div class="stats-row">
+
+<div class="small-box">
+<h3>1850+</h3>
+<p>CF Rating</p>
+</div>
+
+<div class="small-box">
+<h3>1500+</h3>
+<p>LC Solved</p>
+</div>
+
+</div>
+
+<div class="rating">
+<div class="star">★★★★★</div>
+<div>4.8</div>
+</div>
+
+<div class="buttons">
+<button class="btn msg">Message</button>
+<button class="btn call">Book Call ₹149</button>
+</div>
+
+</div>
+
+<!-- CARD 3 -->
+
+<div class="expert-card">
+
+<div class="top-row">
+
+<div class="avatar">
+PS
+</div>
+
+<div class="status online">
+ONLINE
+</div>
+
+</div>
+
+<div class="name">
+Priyal Sharma
+</div>
+
+<div class="role">
+AI Engineer • Frontier Labs
+</div>
+
+<div class="stats-row">
+
+<div class="small-box">
+<h3>950+</h3>
+<p>LC Solved</p>
+</div>
+
+<div class="small-box">
+<h3>35+</h3>
+<p>Projects</p>
+</div>
+
+</div>
+
+<div class="rating">
+<div class="star">★★★★★</div>
+<div>5.0</div>
+</div>
+
+<div class="buttons">
+<button class="btn msg">Message</button>
+<button class="btn call">Book Call ₹199</button>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="leaderboard">
+
+<h2 class="section-title">
+Most Impactful Mentors
+</h2>
+
+<div class="board">
+
+<div class="row">
+<div class="rank">#1</div>
+<div>Aman Verma</div>
+<div>4,850 Sessions</div>
+<div class="score">98 Score</div>
+</div>
+
+<div class="row">
+<div class="rank">#2</div>
+<div>Nikhil Sharma</div>
+<div>3,920 Sessions</div>
+<div class="score">96 Score</div>
+</div>
+
+<div class="row">
+<div class="rank">#3</div>
+<div>Priyal Sharma</div>
+<div>3,410 Sessions</div>
+<div class="score">95 Score</div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+Expert Network • SECRET_APP © 2026
+</p>
+
+</footer>
+
+</body>
+</html>
