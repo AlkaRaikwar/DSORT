@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            
+        }
+        .parent1{
+            height: 800px;
+            width: 1200px;
+
+            display: grid;
+            grid-template-columns: repeat(9,140px);
+            grid-template-rows:repeat(10,150px);
+            background-color: white;
+        }
+        .parent2{
+            /* height: 550px;
+            width: 450px; */
+           grid-column:4/7 ;
+           grid-row: 2/6;
+            display: flex;
+            background-color: white;
+            margin-left: 20%;
+
+           
+            
+        }
+        .parent3{
+            border: 2px solid black;
+            height: 500px;
+            width: 360px;
+
+            display: flex; 
+            flex-wrap: wrap;
+            border-radius: 14px;
+            background-color: cadetblue;
+            margin-left: 24px;
+            margin-top: 10px;
+
+        }
+        .one{
+            display: flex;
+             justify-content: center;
+            align-items: center;
+               border: 2px solid black;
+            height: 130px;
+            width: 360px;
+
+        }
+        .round{
+             border: 2px solid black;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+
+            background-image: url("gollllla.png");
+            background-size: cover;
+
+        }
+
+        .two{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 400px;
+            background-color: chocolate;
+        }
+
+        .h1{
+            font-weight: bolder;
+            font-size: larger;
+            text-align: center;
+        }
+        .linkedin{
+            height: 50px;
+            width: 350px;
+            background-color: chartreuse;
+        }
+        .in{
+            height: 50px;
+            width: 50px;
+            border-radius: 12px;
+            background-image: url("linkedin_logo.png");
+            background-size: cover;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- special   seen card  on top    that declared]s moat of this  page in my website  -->
+<section>
+
+
+<div class="parent1">
+    <div class="parent2">
+        <div class="parent3">
+            <div class="one">
+                 <div class="round"></div>
+            </div>
+            <div class="two">
+                <h1>Pradeep Sajnani</h1>
+                <div class="linkedin">
+                    <a  class="in" href="https://www.linkedin.com/in/pradeep-sajnani-ab99a91b7/"></a>
+                </div>
+            </div>
+            <div class="three"></div>
+            <div class="four"></div>
+            <!-- <button> BOOK ME 4 YOU </button> -->
+        </div>
+    </div>
+</div>
+
+
+</section>
+
+
+
+
+
+
+</body>
+</html>
